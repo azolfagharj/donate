@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="حمایت مالی از علیرضا ذوالفقار - Donate to Alireza Zolfaghar. Support free and open-source projects.">
+    <meta name="author" content="Alireza Zolfaghar">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="keywords" content="donate, donation, support, cryptocurrency, bitcoin, ethereum, tether, solana, open source">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="حمایت مالی | Donate">
+    <meta property="og:description" content="Support free and open-source projects">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="حمایت مالی | Donate">
+    <meta name="twitter:description" content="Support free and open-source projects">
+
+    <title>حمایت مالی | Donate</title>
+
+    <!-- Resource Hints for Performance -->
+    <link rel="preload" href="assets/img/me.jpg" as="image">
+    <link rel="dns-prefetch" href="https://github.com">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Language Selector Screen -->
+    <div id="language-selector" class="language-selector">
+        <div class="language-container">
+            <div class="language-header">
+                <span class="donate-icon">🤝</span>
+                <h1 class="language-title">
+                    <span data-lang="fa">حمایت مالی</span>
+                    <span data-lang="en">Donate</span>
+                </h1>
+                <p class="language-subtitle">
+                    <span data-lang="fa">برای دیدن روش‌های حمایت از پروژه‌های رایگان من، زبان خودتون رو انتخاب کنید</span>
+                    <span data-lang="en">To see ways to support my free projects, please choose your language</span>
+                </p>
+            </div>
+            <div class="language-buttons">
+                <button class="lang-btn" onclick="selectLanguage('fa')" aria-label="Select Persian language">
+                    <span class="lang-icon">
+                        <svg width="20" height="15" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="640" height="480" fill="#239F40"/>
+                            <rect width="640" height="160" y="160" fill="#FFFFFF"/>
+                            <rect width="640" height="160" y="320" fill="#DA0000"/>
+                            <circle cx="320" cy="240" r="60" fill="#DA0000"/>
+                            <circle cx="320" cy="240" r="40" fill="#FFFFFF"/>
+                        </svg>
+                    </span>
+                    <span class="lang-text">فارسی</span>
+                </button>
+                <button class="lang-btn" onclick="selectLanguage('en')" aria-label="Select English language">
+                    <span class="lang-icon">
+                        <svg width="20" height="15" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="60" height="40" fill="#012169"/>
+                            <path d="M0 0l60 40M60 0L0 40" stroke="#fff" stroke-width="4"/>
+                            <path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" stroke-width="2.4"/>
+                            <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="6.4"/>
+                            <path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="4"/>
+                        </svg>
+                    </span>
+                    <span class="lang-text">English</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container" style="display: none;">
+        <!-- Language Switcher Button -->
+        <button class="lang-switcher" onclick="showLanguageSelector()" aria-label="Change language">
+            <span class="icon">🌐</span>
+            <span data-lang="fa">تغییر زبان</span>
+            <span data-lang="en">Change Language</span>
+        </button>
+
+        <!-- Persian Content -->
+        <div data-lang="fa" class="lang-content">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="assets/img/me.jpg" alt="Profile Picture" loading="eager" width="100" height="100">
+                </div>
+                <h1>علیرضا ذوالفقار</h1>
+                <p>با حمایت شما می‌تونم وقت بیشتری برای توسعه پروژه‌های رایگان و اوپن‌سورس بذارم. هر کمکی، هر چقدر کوچک، ارزشمنده.</p>
+            </div>
+
+            <h2 class="section-title">روش‌های پرداخت</h2>
+
+            <div class="payment-methods">
+                <div class="crypto-box crypto-bank">
+                    <div class="crypto-header">
+                        <span class="bank-icon">🏦</span>
+                        <div class="crypto-title">
+                            <span class="crypto-name">شبای بانکی</span>
+                            <span class="crypto-symbol">IBAN</span>
+                        </div>
+                    </div>
+                    <div class="crypto-address-section">
+                        <div class="crypto-address" id="sheba-fa" data-wallet="sheba"></div>
+                        <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('sheba-fa', this)" aria-label="کپی شماره شبا">
+                            <span class="icon">📋</span>
+                            کپی
+                        </button>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-card">
+                    <div class="crypto-header">
+                        <span class="bank-icon">💳</span>
+                        <div class="crypto-title">
+                            <span class="crypto-name">کارت بانکی</span>
+                            <span class="crypto-symbol">Bank Card</span>
+                        </div>
+                    </div>
+                    <div class="crypto-address-section">
+                        <div class="crypto-address" id="card-fa" data-wallet="card"></div>
+                        <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('card-fa', this)" aria-label="کپی شماره کارت">
+                            <span class="icon">📋</span>
+                            کپی
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Crypto Cards -->
+                <div class="crypto-box crypto-btc">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#F7931A"/>
+                            <path fill="#FFF" d="M22.5 14.1c.3-2-1.2-3.1-3.3-3.8l.7-2.7-1.6-.4-.7 2.6c-.4-.1-.8-.2-1.3-.3l.7-2.7-1.6-.4-.7 2.7c-.3-.1-.7-.2-1-.2v0l-2.3-.6-.4 1.7s1.2.3 1.2.3c.7.2.8.6.8 1l-.8 3.2c0 0 .1 0 .2.1-.1 0-.1 0-.2 0l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.2-.3-1.2-.3l-.8 1.9 2.1.5c.4.1.8.2 1.2.3l-.7 2.8 1.6.4.7-2.7c.4.1.9.2 1.3.3l-.7 2.7 1.6.4.7-2.8c2.9.5 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 1.9-1 2.1-2.5zm-3.8 5.3c-.5 2.1-4 1-5.1.7l.9-3.7c1.1.3 4.7.8 4.2 3zm.5-5.4c-.5 1.9-3.4.9-4.3.7l.8-3.4c1 .2 4 .7 3.5 2.7z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Bitcoin</span>
+                            <span class="crypto-symbol">BTC</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="btc" alt="Bitcoin QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="btc-fa" data-crypto="btc"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('btc-fa', this)" aria-label="کپی آدرس بیتکوین">
+                                <span class="icon">📋</span>
+                                کپی آدرس
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-eth">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#627EEA"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M16 4v8.9l7.5 3.3z"/>
+                            <path fill="#FFF" d="M16 4L8.5 16.2l7.5-3.3z"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M16 21.9v6.1l7.5-10.4z"/>
+                            <path fill="#FFF" d="M16 28v-6.1l-7.5-4.3z"/>
+                            <path fill="#FFF" fill-opacity=".2" d="M16 20.4l7.5-4.2L16 12.9z"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M8.5 16.2l7.5 4.2v-7.5z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Ethereum</span>
+                            <span class="crypto-symbol">ETH (ERC20)</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="eth" alt="Ethereum QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="eth-fa" data-crypto="eth"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('eth-fa', this)" aria-label="کپی آدرس اتریوم">
+                                <span class="icon">📋</span>
+                                کپی آدرس
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-usdt">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#26A17B"/>
+                            <path fill="#FFF" d="M17.9 17.9v0c-.1 0-.8.1-2 .1-1 0-1.7 0-2-.1v0c-3.8-.2-6.6-.9-6.6-1.8 0-.9 2.8-1.6 6.6-1.8v2.9c.3 0 1 .1 2 .1 1.2 0 1.8 0 2-.1v-2.9c3.8.2 6.6.9 6.6 1.8 0 .9-2.8 1.6-6.6 1.8zm0-3.9v-2.6h5.3V8h-14.4v3.4h5.3v2.6c-4.3.2-7.5 1.2-7.5 2.3 0 1.2 3.2 2.1 7.5 2.3v8.3h3.8v-8.3c4.3-.2 7.5-1.1 7.5-2.3 0-1.1-3.2-2.1-7.5-2.3z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Tether</span>
+                            <span class="crypto-symbol">USDT (BEP20)</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="usdt" alt="USDT QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="usdt-fa" data-crypto="usdt"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('usdt-fa', this)" aria-label="کپی آدرس تتر">
+                                <span class="icon">📋</span>
+                                کپی آدرس
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-sol">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#000"/>
+                            <defs>
+                                <linearGradient id="sol-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00FFA3"/>
+                                    <stop offset="100%" style="stop-color:#DC1FFF"/>
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#sol-grad)" d="M9.5 20.8c.1-.1.3-.2.5-.2h12.8c.3 0 .5.4.3.6l-2.4 2.4c-.1.1-.3.2-.5.2H7.4c-.3 0-.5-.4-.3-.6l2.4-2.4zm0-9.6c.1-.1.3-.2.5-.2h12.8c.3 0 .5.4.3.6l-2.4 2.4c-.1.1-.3.2-.5.2H7.4c-.3 0-.5-.4-.3-.6l2.4-2.4zm13.1 2.9c-.1-.1-.3-.2-.5-.2H9.3c-.3 0-.5.4-.3.6l2.4 2.4c.1.1.3.2.5.2h12.8c.3 0 .5-.4.3-.6l-2.4-2.4z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Solana</span>
+                            <span class="crypto-symbol">SOL</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="sol" alt="Solana QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="sol-fa" data-crypto="sol"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('sol-fa', this)" aria-label="کپی آدرس سولانا">
+                                <span class="icon">📋</span>
+                                کپی آدرس
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="thanks">
+                از حمایت شما سپاسگزارم
+                <span class="icon">❤️</span>
+            </p>
+
+            <div class="footer">
+                <div class="social-links">
+                    <a href="https://github.com/azolfagharj" target="_blank" rel="noopener noreferrer" class="social-link" title="My GitHub">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div data-lang="en" class="lang-content" style="display: none;">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="assets/img/me.jpg" alt="Profile Picture" loading="lazy" width="100" height="100">
+                </div>
+                <h1>Alireza Zolfaghar</h1>
+                <p>Your support lets me spend more time on free and open-source projects. Every contribution, no matter how small, makes a difference.</p>
+            </div>
+
+            <h2 class="section-title">Payment Methods</h2>
+
+            <div class="payment-methods">
+                <div class="crypto-box crypto-bank">
+                    <div class="crypto-header">
+                        <span class="bank-icon">🏦</span>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Bank Account</span>
+                            <span class="crypto-symbol">IBAN</span>
+                        </div>
+                    </div>
+                    <div class="crypto-address-section">
+                        <div class="crypto-address" id="sheba-en" data-wallet="sheba"></div>
+                        <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('sheba-en', this)" aria-label="Copy IBAN number">
+                            <span class="icon">📋</span>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-card">
+                    <div class="crypto-header">
+                        <span class="bank-icon">💳</span>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Bank Card</span>
+                            <span class="crypto-symbol">Card Number</span>
+                        </div>
+                    </div>
+                    <div class="crypto-address-section">
+                        <div class="crypto-address" id="card-en" data-wallet="card"></div>
+                        <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('card-en', this)" aria-label="Copy card number">
+                            <span class="icon">📋</span>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Crypto Cards -->
+                <div class="crypto-box crypto-btc">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#F7931A"/>
+                            <path fill="#FFF" d="M22.5 14.1c.3-2-1.2-3.1-3.3-3.8l.7-2.7-1.6-.4-.7 2.6c-.4-.1-.8-.2-1.3-.3l.7-2.7-1.6-.4-.7 2.7c-.3-.1-.7-.2-1-.2v0l-2.3-.6-.4 1.7s1.2.3 1.2.3c.7.2.8.6.8 1l-.8 3.2c0 0 .1 0 .2.1-.1 0-.1 0-.2 0l-1.1 4.5c-.1.2-.3.5-.8.4 0 0-1.2-.3-1.2-.3l-.8 1.9 2.1.5c.4.1.8.2 1.2.3l-.7 2.8 1.6.4.7-2.7c.4.1.9.2 1.3.3l-.7 2.7 1.6.4.7-2.8c2.9.5 5.1.3 6-2.3.7-2.1 0-3.3-1.5-4.1 1.1-.3 1.9-1 2.1-2.5zm-3.8 5.3c-.5 2.1-4 1-5.1.7l.9-3.7c1.1.3 4.7.8 4.2 3zm.5-5.4c-.5 1.9-3.4.9-4.3.7l.8-3.4c1 .2 4 .7 3.5 2.7z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Bitcoin</span>
+                            <span class="crypto-symbol">BTC</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="btc" alt="Bitcoin QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="btc-en" data-crypto="btc"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('btc-en', this)" aria-label="Copy Bitcoin address">
+                                <span class="icon">📋</span>
+                                Copy Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-eth">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#627EEA"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M16 4v8.9l7.5 3.3z"/>
+                            <path fill="#FFF" d="M16 4L8.5 16.2l7.5-3.3z"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M16 21.9v6.1l7.5-10.4z"/>
+                            <path fill="#FFF" d="M16 28v-6.1l-7.5-4.3z"/>
+                            <path fill="#FFF" fill-opacity=".2" d="M16 20.4l7.5-4.2L16 12.9z"/>
+                            <path fill="#FFF" fill-opacity=".6" d="M8.5 16.2l7.5 4.2v-7.5z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Ethereum</span>
+                            <span class="crypto-symbol">ETH (ERC20)</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="eth" alt="Ethereum QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="eth-en" data-crypto="eth"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('eth-en', this)" aria-label="Copy Ethereum address">
+                                <span class="icon">📋</span>
+                                Copy Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-usdt">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#26A17B"/>
+                            <path fill="#FFF" d="M17.9 17.9v0c-.1 0-.8.1-2 .1-1 0-1.7 0-2-.1v0c-3.8-.2-6.6-.9-6.6-1.8 0-.9 2.8-1.6 6.6-1.8v2.9c.3 0 1 .1 2 .1 1.2 0 1.8 0 2-.1v-2.9c3.8.2 6.6.9 6.6 1.8 0 .9-2.8 1.6-6.6 1.8zm0-3.9v-2.6h5.3V8h-14.4v3.4h5.3v2.6c-4.3.2-7.5 1.2-7.5 2.3 0 1.2 3.2 2.1 7.5 2.3v8.3h3.8v-8.3c4.3-.2 7.5-1.1 7.5-2.3 0-1.1-3.2-2.1-7.5-2.3z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Tether</span>
+                            <span class="crypto-symbol">USDT (BEP20)</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="usdt" alt="USDT QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="usdt-en" data-crypto="usdt"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('usdt-en', this)" aria-label="Copy USDT address">
+                                <span class="icon">📋</span>
+                                Copy Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-box crypto-sol">
+                    <div class="crypto-header">
+                        <svg class="crypto-icon" viewBox="0 0 32 32" width="28" height="28">
+                            <circle cx="16" cy="16" r="16" fill="#000"/>
+                            <defs>
+                                <linearGradient id="sol-grad-en" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00FFA3"/>
+                                    <stop offset="100%" style="stop-color:#DC1FFF"/>
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#sol-grad-en)" d="M9.5 20.8c.1-.1.3-.2.5-.2h12.8c.3 0 .5.4.3.6l-2.4 2.4c-.1.1-.3.2-.5.2H7.4c-.3 0-.5-.4-.3-.6l2.4-2.4zm0-9.6c.1-.1.3-.2.5-.2h12.8c.3 0 .5.4.3.6l-2.4 2.4c-.1.1-.3.2-.5.2H7.4c-.3 0-.5-.4-.3-.6l2.4-2.4zm13.1 2.9c-.1-.1-.3-.2-.5-.2H9.3c-.3 0-.5.4-.3.6l2.4 2.4c.1.1.3.2.5.2h12.8c.3 0 .5-.4.3-.6l-2.4-2.4z"/>
+                        </svg>
+                        <div class="crypto-title">
+                            <span class="crypto-name">Solana</span>
+                            <span class="crypto-symbol">SOL</span>
+                        </div>
+                    </div>
+                    <div class="crypto-content">
+                        <div class="crypto-qr">
+                            <img src="" data-qr="sol" alt="Solana QR" loading="lazy" width="128" height="128">
+                        </div>
+                        <div class="crypto-address-section">
+                            <div class="crypto-address" id="sol-en" data-crypto="sol"></div>
+                            <button class="copy-btn crypto-copy-btn" onclick="copyToClipboard('sol-en', this)" aria-label="Copy Solana address">
+                                <span class="icon">📋</span>
+                                Copy Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="thanks">
+                Thank you for your support
+                <span class="icon">❤️</span>
+            </p>
+
+            <div class="footer">
+                <div class="social-links">
+                    <a href="https://github.com/azolfagharj" target="_blank" rel="noopener noreferrer" class="social-link" title="My GitHub">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <style>
+            #language-selector { display: none !important; }
+            #main-content { display: block !important; }
+            [data-lang="fa"] { display: block !important; }
+            [data-lang="en"] { display: none !important; }
+            .crypto-address:empty::before,
+            [data-wallet]:empty::before {
+                content: 'JavaScript is required to display wallet addresses. Please enable JavaScript.';
+                color: #ef4444;
+                font-size: 12px;
+            }
+        </style>
+        <div style="position: fixed; top: 0; left: 0; right: 0; background: #ef4444; color: white; padding: 10px; text-align: center; z-index: 9999;">
+            JavaScript is disabled. Some features may not work properly. Please enable JavaScript for the best experience.
+        </div>
+    </noscript>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
